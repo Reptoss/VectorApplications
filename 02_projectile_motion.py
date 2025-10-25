@@ -11,7 +11,10 @@ from lib.winobj_circle import Circle
 #   Then, apply some gravity (gravity at earths surface is -9.8 m/s^2)
 def updateCircleFunction(circle, deltaTime):
     # TODO...use circle.pos and circle.vel (both 2d vectors)
-    pass
+    circle.vel[1] += -9.8 * deltaTime
+    circle.pos += circle.vel * deltaTime
+    #-9.8 is the meters, deltaTime is the seconds, of -9.8 m/s^2
+    #multiply by deltaTime twice because gravity is -9.8 m/s^2 <- (seconds sqaured)
 
 
 ####################################################################################################
