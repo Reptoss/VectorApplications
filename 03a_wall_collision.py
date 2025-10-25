@@ -10,7 +10,14 @@ from lib.winobj_wall import Wall
 #       wall.normal     vector facing away from the wall (perpendicular to the wall)
 def updateCircleFunction(circle, deltaTime):
     # TODO...use circle.pos and circle.vel (both 2d vectors)
-    pass
+    
+    #apply gravity
+    circle.vel[1] += -9.8 * deltaTime
+    circle.pos += circle.vel * deltaTime
+
+    #bounce off wall
+    if(circle.pos[0] >= wall.pos[0] - circle.radius):   #checks if the ball is hitting the wall
+        circle.vel[0] *= wall.normal[0] #reverses ball direction
 
 
 ####################################################################################################
